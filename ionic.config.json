@@ -1,0 +1,7 @@
+{
+  "name": "raffles",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
