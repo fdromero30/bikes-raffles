@@ -1,0 +1,16 @@
+ion-card-content {
+    padding: 0;
+    .customItem {
+        --ion-background-color: black;
+        height: 35px;
+        color: #ffc409;
+        padding: 0;
+        ion-label{
+            margin-top: 0;
+            margin-left: 1%;
+        }
+        strong{
+            margin-top: -10px;
+        }
+    }
+}

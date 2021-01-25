@@ -1,1 +1,10 @@
+ion-tab-bar{
+    background:black;
+    height: 50px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 
+    ion-tab-button {
+        background: black;
+    }
+}
