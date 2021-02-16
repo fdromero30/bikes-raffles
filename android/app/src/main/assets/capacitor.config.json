@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "raffles",
+  "appName": "Raffles",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
