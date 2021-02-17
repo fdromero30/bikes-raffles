@@ -37,12 +37,36 @@ ion-header {
     }
 }
 
-ion-card{
+ion-card {
     margin: 8%;
 }
 
-ion-title{
-    font-family: fantasy;
+ion-title {
+
+    color: black;
+    text-align: center;
+
+    font-family: unset;
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1rem;
+}
+
+ion-content {
+    --ion-background-color: white;
+}
+
+ion-toolbar {
+    text-align: center;
+
+    ion-button {
+        position: absolute;
+        right: 0;
+        margin: 0;
+        padding: 0;
+
+        ion-icon {
+            font-size: 2.2rem;
+            color: var(--ion-color-primary-shade);
+        }
+    }
 }

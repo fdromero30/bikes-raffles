@@ -7,6 +7,7 @@ import { CreateMatchComponent } from './create-match.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { CreateMatchPageRoutingModule } from './create-match-routing.module';
+import { MatchPropertiesComponent } from './match-properties/match-properties.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { CreateMatchPageRoutingModule } from './create-match-routing.module';
     ExploreContainerComponentModule,
     CreateMatchPageRoutingModule
   ],
-  declarations: [CreateMatchComponent]
+  declarations: [CreateMatchComponent, MatchPropertiesComponent]
 })
 export class CreateMatchModule { }

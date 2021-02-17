@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@capacitor/core';
+import { Router } from '@angular/router';
 
 declare var google;
 
@@ -25,15 +26,13 @@ export class CreateMatchComponent implements OnInit {
   directionsService;
   directionsRenderer;
   path = [];
-  // parque simon bolivar
-  origin = { lat: 4.658383846282959, lng: -74.09394073486328 };
-  // Parque la 93
-  destination = { lat: 4.676802158355713, lng: -74.04825592041016 };
-
+  origin = null;
+  destination = null;
   wayPoints: WayPoint[] = [];
+  showBackdrop = true;
 
-  constructor() {
-    // this.geoLocation();
+  constructor(private router: Router) {
+    this.geoLocation();
   }
 
   ngOnInit() {
@@ -56,10 +55,10 @@ export class CreateMatchComponent implements OnInit {
   initMap() {
     const mapEl: HTMLElement = document.getElementById('map');
 
-    // const latLongIni = { lat: this.latitude, lng: this.longitude };
+    const latLongIni = { lat: this.latitude, lng: this.longitude };
 
     this.map = new google.maps.Map(mapEl, {
-      center: this.origin,
+      center: latLongIni,
       zoom: 12,
       mapTypeId: "terrain",
       mapTypeControl: false,
@@ -132,6 +131,8 @@ export class CreateMatchComponent implements OnInit {
 
     if (this.markers.length < 1) {
       this.path = [];
+      this.origin = null;
+      this.destination = null;
       marker.setMap(map);
       this.markers.push(marker);
       this.origin = marker.getPosition();
@@ -149,6 +150,7 @@ export class CreateMatchComponent implements OnInit {
       );
       this.deleteMarkers();
     }
+
   }
 
   /**
@@ -207,11 +209,11 @@ export class CreateMatchComponent implements OnInit {
 
     // Draw the chart using the data within its DIV.
     chart.draw(data, {
-      height: 120,
+      height: 100,
       width: 260,
       bottom: 1,
       legend: "none",
-      backgroundColor: { fill: '#ffc409' },
+      backgroundColor: { fill: 'rgb(244 245 248);' },
       // @ts-ignore TODO(jpoehnelt) update to newest visualization library
       titleY: "Elevation (m)",
     });
@@ -287,6 +289,15 @@ export class CreateMatchComponent implements OnInit {
   clickGhrap(event) {
 
     console.log(event);
+  }
+
+
+  onClickBackDrop() {
+    this.showBackdrop = false;
+  }
+
+  navigateToProperties() {
+    this.router.navigate(['tabs/tab2/match-properties']);
   }
 }
 
