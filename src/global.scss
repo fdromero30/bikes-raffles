@@ -57,16 +57,31 @@ ion-content {
 
 ion-toolbar {
     text-align: center;
+}
 
-    ion-button {
-        position: absolute;
-        right: 0;
-        margin: 0;
-        padding: 0;
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    --opacity: .8;
+}
 
-        ion-icon {
-            font-size: 2.2rem;
-            color: var(--ion-color-primary-shade);
-        }
-    }
+ion-header {
+    backdrop-filter: saturate(180%) blur(20px);
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+    height: 84px
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 19px !important
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {
+    margin-top: 20px
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .has-header,
+.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 84px
 }

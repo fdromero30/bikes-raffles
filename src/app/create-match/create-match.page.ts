@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Geolocation } from '@capacitor/core';
 import { Router } from '@angular/router';
+import { MatchService } from '../services/match.service';
 
 declare var google;
 
@@ -31,7 +31,7 @@ export class CreateMatchComponent implements OnInit {
   wayPoints: WayPoint[] = [];
   showBackdrop = true;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private matchService: MatchService) {
     this.geoLocation();
   }
 
@@ -43,7 +43,7 @@ export class CreateMatchComponent implements OnInit {
    * 
    */
   async geoLocation() {
-    const position = await Geolocation.getCurrentPosition();
+    const position = await this.matchService.getActualPosition();
     this.longitude = position.coords.longitude;
     this.latitude = position.coords.latitude;
     this.initMap();
@@ -297,6 +297,14 @@ export class CreateMatchComponent implements OnInit {
   }
 
   navigateToProperties() {
+
+
+    this.matchService.setGraph(
+      {
+        path: this.path,
+        samples: 256
+      }
+    );
     this.router.navigate(['tabs/tab2/match-properties']);
   }
 }

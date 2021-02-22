@@ -9,15 +9,19 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Stripe } from '@ionic-native/stripe/ngx';
+import { MatchService } from './services/match.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
-    SplashScreen, Stripe,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    SplashScreen, Stripe, MatchService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    HttpClient, UserService
   ],
   bootstrap: [AppComponent]
 })

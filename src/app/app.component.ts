@@ -25,7 +25,10 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.stripe.setPublishableKey('pk_test_51I8WnbJ7YZdpOXXZBKHZMeWee5mOAE4EjagSAVYfjwvColPIYyR5jKBgDbBdHgJYhiRp1i71BSfED7kaNjcY51r0005wGt0CL7');
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 1000);
+  
     });
   }
 }
