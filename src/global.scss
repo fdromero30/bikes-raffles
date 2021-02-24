@@ -69,19 +69,41 @@ ion-header {
     backdrop-filter: saturate(180%) blur(20px);
 }
 
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
-    height: 84px
-}
+@supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
 
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
-    margin-top: 19px !important
-}
+    ion-header {
+        height: 10% !important;
 
-.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader)>* {
-    margin-top: 20px
-}
+        ion-toolbar {
+            background: #ffc409;
+            height: 100%;
+            padding-top: 2rem !important;
 
-.platform-ios.platform-cordova:not(.fullscreen) .has-header,
-.platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
-    top: 84px
+            img {
+                display: inline-block;
+                height: 25px !important;
+                width: 25px !important;
+                position: absolute;
+                top: 0;
+            }
+
+            .buttonComeBack {
+                padding-top: 1% !important;
+            }
+
+            .buttonGoAhead {
+                padding-top: 1% !important;
+            }
+
+            ion-button {
+                top: -30% !important;
+
+                ion-icon {
+                    font-size: 1.5rem !important;
+                }
+            }
+        }
+    }
+
 }

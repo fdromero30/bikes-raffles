@@ -12,9 +12,10 @@ import { Stripe } from '@ionic-native/stripe/ngx';
 import { MatchService } from './services/match.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [

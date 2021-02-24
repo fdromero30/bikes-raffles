@@ -1,7 +1,7 @@
 {
-  "name": "raffles",
+  "name": "match",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Fabian David Romero",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -63,5 +63,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
   },
-  "description": "An Ionic project"
+  "description": "Match APP Inc"
 }
