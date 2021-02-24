@@ -2,6 +2,11 @@ ion-content {
 
     --ion-background-color: var(--ion-color-primary-shade) !important;
     color: white;
+
+    h1{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
 }
 
 .user-img {
