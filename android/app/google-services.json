@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "633100457172",
+    "project_id": "komsportsmatch",
+    "storage_bucket": "komsportsmatch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633100457172:android:1997a8f2848484ea509741",
+        "android_client_info": {
+          "package_name": "com.kommatchsports.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633100457172-8v6vih9v1mdah62v8csuivdf1uevf95t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kommatchsports.app",
+            "certificate_hash": "592275b5198aa9a4f29756ab87e598f0199cc417"
+          }
+        },
+        {
+          "client_id": "633100457172-j9d4v98llu9k2h08ja1qr4mdlqd6btbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVU_RAxxvNhaKqbuHSLgr51kL_gDUfsWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633100457172-j9d4v98llu9k2h08ja1qr4mdlqd6btbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

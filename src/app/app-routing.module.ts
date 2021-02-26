@@ -1,15 +1,26 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { SignupComponent } from './components/authentication/signup/signup.component';
+import { LoginComponent } from './components/authentication/login/login.component';
+import { AuthGuardService } from './services/guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),  canActivate: [AuthGuardService] 
   },
   {
-    path: 'login',
+    path: 'authentication',
+    component: AuthenticationComponent
+  },
+  {
+    path: 'authentication/login',
     component: LoginComponent
+  },
+  {
+    path: 'authentication/signup',
+    component: SignupComponent
   }
 ];
 @NgModule({

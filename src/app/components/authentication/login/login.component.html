@@ -1,0 +1,76 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" class="buttonComeBack" (click)="comeBack()">
+      <ion-icon name="chevron-back-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content color="primary">
+  <div class="title-page">
+    <h1>
+      Log In
+    </h1>
+    <p>
+      Por favor ingrese los datos de registro para acceder a la aplicacion.
+    </p>
+  </div>
+  <div class="content-form">
+
+    <div class="social-media-login">
+      <!-- <label>or</label> -->
+      <ion-button color="light" expand="block" (click)="onLoginGoogle()">
+        <ion-icon name="logo-google"></ion-icon> Continue with google
+      </ion-button>
+    </div>
+    <hr>
+    <form [formGroup]="form">
+      <div class="input-container">
+        <p>
+          <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
+        </p>
+        <p *ngIf="form.get('email').errors  && form.get('email').dirty">
+
+          <small *ngIf="form.get('email').hasError('required')">
+            <ion-icon name="alert-circle-outline"></ion-icon> Campo Requerido!
+          </small>
+          <small *ngIf="form.get('email').hasError('email')">
+            <ion-icon name="alert-circle-outline"></ion-icon> El campo debe ser tipo email "alguien@matchsports.com"
+          </small>
+        </p>
+      </div>
+
+      <div  class="input-container">
+        <p>
+          <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+        </p>
+        <p *ngIf="form.get('password').errors  && form.get('password').dirty">
+
+          <small *ngIf="form.get('password').hasError('required')">
+            <ion-icon name="alert-circle-outline"></ion-icon> Campo Requerido!
+          </small>
+          <small *ngIf="form.get('password').hasError('maxlength')">
+            <ion-icon name="alert-circle-outline"></ion-icon> Longitud maxima 50!
+          </small>
+          <small *ngIf="form.get('password').hasError('minlength')">
+            <ion-icon name="alert-circle-outline"></ion-icon> Longitud minima 10!
+          </small>
+        </p>
+      </div>
+
+
+
+      <div class="forgot-password">
+        <ion-label>Forgot Password?</ion-label>
+      </div>
+      <ion-button type="submit" [disabled]="form.invalid" (click)="onLogin($event)" expand="block"
+        style="font-size:0.8rem">
+        Log In
+      </ion-button>
+    </form>
+  </div>
+
+
+
+</ion-content>
