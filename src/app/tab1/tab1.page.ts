@@ -3,6 +3,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 import { StripeService } from '../services/stripe.service';
 import { LocationService } from '../services/location.service';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -15,7 +16,8 @@ export class Tab1Page {
 
   raffles: any;
 
-  constructor(private stripe: StripeService, private locationSevice: LocationService, private auth: AuthService) {
+  constructor(private stripe: StripeService, private locationSevice: LocationService, private auth: AuthService,
+    private router: Router) {
     this.raffles = [{
       subtitle: "test", title: "PlayStation5", content: "10 dias", img: "https://www.easypromosapp.com/blog/wp-content/uploads/header_ideas_promocionales_para_sortear_una_bicicleta.jpg",
       percent: 0.1
@@ -65,7 +67,14 @@ export class Tab1Page {
 
   onClick() {
     // this.locationSevice.startTracking();
-
     this.auth.logOutUser();
+  }
+
+
+  /**
+   * 
+   */
+  createActivity(){
+    this.router.navigate(['tabs/create-activity']);
   }
 }

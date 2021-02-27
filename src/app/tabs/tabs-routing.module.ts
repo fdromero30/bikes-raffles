@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { AuthGuardService } from '../services/guard.service';
+import { RegisterActivityComponent } from '../components/register-activity/register-activity.component';
+import { ResumeTrackingSessionComponent } from '../components/resume-tracking-session/resume-tracking-session.component'
 
 const routes: Routes = [
   {
@@ -24,6 +26,13 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full', canActivate: [AuthGuardService]
+      },
+      {
+        path: 'create-activity',
+        component: RegisterActivityComponent, canActivate: [AuthGuardService]
+      }, {
+        path: 'resume-tracking-session',
+        component: ResumeTrackingSessionComponent
       }
     ]
   },

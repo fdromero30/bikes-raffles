@@ -1,0 +1,79 @@
+ion-content {
+    --background: var(--ion-color-dark-shade);
+}
+
+.gps-status-container {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    .gps-status {
+        background: #222428;
+        color: #ffc409;
+        padding: 1%;
+        z-index: 1;
+        
+    }
+}
+
+#mapActivity {
+    width: 100%;
+    height: 90%;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    display: block;
+    overflow: none !important;
+    --overflow:none !important;
+
+    &.show-map {
+        opacity: 1;
+    }
+}
+
+.map-activity-controls-container {
+    background: var(--ion-color-dark-shade);
+    --ion-background-color: var(--ion-color-primary-shade) !important;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .toggle-control-activity {
+        --border-radius: 50px;
+        width: 60px;
+        height: 60px;
+        --background-activated: var(--ion-color-medium-shade);
+    }
+}
+
+ion-segment {
+    background-color: #ffca22;
+    --background: var(--ion-color-primary);
+    border-radius: 0;
+
+    ion-segment-button {
+        border-radius: 0;
+    }
+
+    .segment-button-checked {
+        color: var(--ion-color-primary);
+    }
+}
+
+ion-button {
+    margin-top: 3%;
+}
+
+.timer{
+    color: white;
+    position: absolute;
+    left: 5%;
+    height: 100%;
+    padding: 8%;
+}
+
+#locate-map{
+    background: white !important;
+    border-radius: 10px !important;
+}

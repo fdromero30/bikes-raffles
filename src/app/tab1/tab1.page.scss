@@ -31,3 +31,10 @@ ion-card-content {
     font-weight: bold;
     --box-shadow: 1px 1px 5px 2px gray;
 }
+
+ion-header{
+    ion-button{
+        --color:black;
+        margin: 0;
+    }
+}

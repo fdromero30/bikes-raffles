@@ -57,9 +57,7 @@ ion-content {
 
 ion-toolbar {
     text-align: center;
-}
-
-ion-toolbar {
+    --border-style: none;
     --background: transparent;
     --ion-color-base: transparent !important;
     --opacity: .8;
@@ -106,4 +104,8 @@ ion-header {
         }
     }
 
+}
+
+ion-content{
+    --background:var(--ion-color-dark-shade);
 }

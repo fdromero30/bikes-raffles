@@ -26,16 +26,30 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
-  declarations: [AppComponent, AuthenticationComponent, LoginComponent, SignupComponent],
+  declarations: [
+      AppComponent
+    , AuthenticationComponent
+    , LoginComponent
+    , SignupComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,],
+  imports: [BrowserModule
+    , IonicModule.forRoot()
+    , AppRoutingModule
+    , HttpClientModule
+    , ReactiveFormsModule
+    , AngularFireModule.initializeApp(environment.firebaseConfig)
+    , AngularFireAuthModule,],
   providers: [
     StatusBar,
-    SplashScreen, Stripe, MatchService,
+    SplashScreen, 
+    Stripe, 
+    MatchService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    HttpClient, UserService, AuthGuardService, AuthService,   GooglePlus,
+    HttpClient, 
+    UserService, 
+    AuthGuardService, 
+    AuthService,   
+    GooglePlus,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,7 @@
 import { Plugins } from '@capacitor/core';
 import { Injectable } from "@angular/core";
 import { Geolocation } from '@capacitor/core';
+import { Subject } from 'rxjs';
 const { Storage } = Plugins;
 declare var google;
 
@@ -12,15 +13,18 @@ export class LocationService {
     graph: any;
     isTracking = false;
     watch: any;
-    locationsCollection: any;
+    locationsCollection: Subject<any> = new Subject<any>();
     map;
     constructor() {
-        this.locationsCollection = [];
 
     }
 
     getActualPosition() {
-        return Geolocation.getCurrentPosition();
+        return Geolocation.getCurrentPosition({
+            enableHighAccuracy: true,
+            timeout: 30000,
+            maximumAge: 30000
+        });
     }
 
     startTracking() {
@@ -51,12 +55,15 @@ export class LocationService {
      * @param timestamp 
      */
     addNewLocation(lat, lng, timestamp) {
-        this.locationsCollection.push({
+        this.locationsCollection.next({
             lat,
             lng,
             timestamp
         });
-        alert(new google.maps.LatLng(lat, lng));
+    }
 
+    /** */
+    saveTrackActivity(val) {
+        Storage.set({ key: 'track-activity', value: val });
     }
 }
