@@ -29,12 +29,22 @@ ion-card-content {
     width: 60px;
     color: white;
     font-weight: bold;
-    --box-shadow: 1px 1px 5px 2px gray;
+    --box-shadow: 0px 0px 4px 0px gray;
 }
 
 ion-header{
     ion-button{
         --color:black;
         margin: 0;
+        button{
+            box-shadow: none;
+        }
     }
+}
+
+.list-ios {
+    background: var(--ion-color-primary-shade, var(--ion-background-color, #fff));
+}
+ion-infinite-scroll{
+    background: var(--ion-color-primary-shade);
 }

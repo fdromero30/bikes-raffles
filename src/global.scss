@@ -51,9 +51,6 @@ ion-title {
     font-size: 1rem;
 }
 
-ion-content {
-    --ion-background-color: white;
-}
 
 ion-toolbar {
     text-align: center;
@@ -66,6 +63,21 @@ ion-toolbar {
 ion-header {
     backdrop-filter: saturate(180%) blur(20px);
 }
+
+::ng-deep ion-segment {
+    background-color: #ffca22;
+    --background: var(--ion-color-primary);
+    border-radius: 0;
+
+    ion-segment-button {
+        border-radius: 0;
+    }
+
+    .segment-button-checked {
+        color: var(--ion-color-primary);
+    }
+}
+
 
 @supports (-webkit-touch-callout: none) {
     /* CSS specific to iOS devices */
@@ -104,8 +116,4 @@ ion-header {
         }
     }
 
-}
-
-ion-content{
-    --background:var(--ion-color-dark-shade);
 }

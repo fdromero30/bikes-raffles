@@ -17,17 +17,20 @@ import { LoginComponent } from './components/authentication/login/login.componen
 import { SignupComponent } from './components/authentication/signup/signup.component';
 import { AuthGuardService } from './services/guard.service';
 import { AuthService } from './services/auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { LocationService } from './services/location.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { FirestoreService } from './services/fireStore.service';
 
 @NgModule({
   declarations: [
-      AppComponent
+    AppComponent
     , AuthenticationComponent
     , LoginComponent
     , SignupComponent],
@@ -38,18 +41,24 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
     , HttpClientModule
     , ReactiveFormsModule
     , AngularFireModule.initializeApp(environment.firebaseConfig)
-    , AngularFireAuthModule,],
+    , AngularFireAuthModule
+    , AngularFirestoreModule
+    , FormsModule
+    , ReactiveFormsModule],
   providers: [
     StatusBar,
-    SplashScreen, 
-    Stripe, 
+    SplashScreen,
+    Stripe,
     MatchService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    HttpClient, 
-    UserService, 
-    AuthGuardService, 
-    AuthService,   
+    HttpClient,
+    UserService,
+    AuthGuardService,
+    AuthService,
     GooglePlus,
+    // BackgroundGeolocation,
+    LocationService,
+    FirestoreService
   ],
   bootstrap: [AppComponent]
 })

@@ -296,8 +296,10 @@ export class CreateMatchComponent implements OnInit {
     this.showBackdrop = false;
   }
 
+  /**
+   * Go to properties page
+   */
   navigateToProperties() {
-
 
     this.matchService.setGraph(
       {
@@ -305,6 +307,7 @@ export class CreateMatchComponent implements OnInit {
         samples: 256
       }
     );
+    this.matchService.setDistance(this.kms);
     this.router.navigate(['tabs/tab2/match-properties']);
   }
 }

@@ -19,15 +19,15 @@ export class Tab1Page {
   constructor(private stripe: StripeService, private locationSevice: LocationService, private auth: AuthService,
     private router: Router) {
     this.raffles = [{
-      subtitle: "test", title: "PlayStation5", content: "10 dias", img: "https://www.easypromosapp.com/blog/wp-content/uploads/header_ideas_promocionales_para_sortear_una_bicicleta.jpg",
+      subtitle: "test", title: "100.000 COP", content: "10 dias", img: "https://www.easypromosapp.com/blog/wp-content/uploads/header_ideas_promocionales_para_sortear_una_bicicleta.jpg",
       percent: 0.1
     },
     {
-      subtitle: "test", title: "Xbox Series X", content: "5 dias", img: "https://laventanaciudadana.cl/wp-content/uploads/2016/10/loteria.jpg",
+      subtitle: "test", title: "50.000 COP", content: "5 dias", img: "https://laventanaciudadana.cl/wp-content/uploads/2016/10/loteria.jpg",
       percent: 0.9
     },
     {
-      subtitle: "test", title: "Air Freezer", content: "1 dia", img: "https://actualicese.com/_ig/img/fotos/rifas.jpg",
+      subtitle: "test", title: "20.000 COP", content: "1 dia", img: "https://actualicese.com/_ig/img/fotos/rifas.jpg",
       percent: 0.56
     }];
 
@@ -67,7 +67,9 @@ export class Tab1Page {
 
   onClick() {
     // this.locationSevice.startTracking();
-    this.auth.logOutUser();
+    // this.auth.logOutUser();
+    this.router.navigate(['tabs/settings']);
+
   }
 
 

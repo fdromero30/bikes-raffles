@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LocationService } from 'src/app/services/location.service';
 import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 const { Network } = Plugins;
 declare var google;
@@ -21,6 +24,11 @@ interface WayPoint {
 export class RegisterActivityComponent implements OnInit {
 
 
+
+  trackLocations = [];
+  showFinishBtn = false;
+  locationsCollection;
+  locations;
   locationsCollectionArray: any;
   longitude: number = 0;
   latitude: number = 0;
@@ -37,14 +45,33 @@ export class RegisterActivityComponent implements OnInit {
   activityPause = true;
   segmentSport: any;
   networkStatus: boolean;
+  user;
 
-  constructor(private locationService: LocationService, private router: Router) {
+  constructor(private locationService: LocationService, private router: Router, private authService: AuthService,
+    private afs: AngularFirestore) {
     this.geoLocation();
     this.locationsCollectionArray = [];
+    this.user = this.authService.user;
 
     Network.addListener('networkStatusChange', (status) => {
       this.networkStatus = status.connected;
     });
+
+    this.locationsCollection = this.afs.collection(
+      `locations/${this.user.id}/${Date.now()}`,
+      ref => ref.orderBy('timestamp')
+    );
+
+    // Make sure we also get the Firebase item ID!
+    this.locations = this.locationsCollection.snapshotChanges().pipe(
+      map((actions: any) =>
+        actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      )
+    );
   }
 
 
@@ -93,9 +120,9 @@ export class RegisterActivityComponent implements OnInit {
     // Create the DIV to hold the control and call the CenterControl()
     // constructor passing in this DIV.
 
-    const bogota = { lat:4.6097100, lng: -74.0817500 };
-    if(!latLongIni.lat || !latLongIni.lng){
-      latLongIni =bogota;
+    const bogota = { lat: 4.6097100, lng: -74.0817500 };
+    if (!latLongIni.lat || !latLongIni.lng) {
+      latLongIni = bogota;
     }
 
     const centerControlDiv = document.createElement("div");
@@ -149,6 +176,7 @@ export class RegisterActivityComponent implements OnInit {
         const latLong = { lat: this.latitude, lng: this.longitude };
 
         this.locationsCollectionArray.push(latLong);
+        this.locationsCollection.add(res);
 
         this.saveTrackActivity();
         this.drawRoute();
@@ -178,8 +206,6 @@ export class RegisterActivityComponent implements OnInit {
   }
 
 
-  trackLocations = [];
-  showFinishBtn = false;
   /** 
    * 
   */
@@ -188,12 +214,11 @@ export class RegisterActivityComponent implements OnInit {
     this.locationService.saveTrackActivity(trackValue);
   }
 
-  finisgTracking(){
+  finisgTracking() {
     this.locationService.stopTracking();
     alert('Sesion finalziada');
     this.router.navigate(['tabs/resume-tracking-session']);
   }
-
 }
 
 class CenterControl {
@@ -265,5 +290,5 @@ class CenterControl {
       }
     });
   }
-  
+
 }

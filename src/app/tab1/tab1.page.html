@@ -1,11 +1,16 @@
 <ion-header [translucent]="false">
   <ion-toolbar color="primary">
-    <ion-title>
-      <img src="../../assets/wolf-icon.png" width="30px"/>
-    </ion-title>
-
-    <ion-button slot="end" (click)="onClick()" type="clear">
-      <ion-icon name="log-out-outline"></ion-icon>
+    <ion-button slot="start" style="box-shadow: none;">
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" style="box-shadow: none;">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-button>
+    <ion-button slot="start"  style="box-shadow: none;">
+      <ion-icon name="medal"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" (click)="onClick()" type="clear" style="box-shadow: none;">
+      <ion-icon name="settings"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
@@ -21,8 +26,8 @@
       </ion-card-header>
       <ion-card-content>
         <ion-item slot="start" class="customItem">
-          <strong>Quedan: </strong>
-          <ion-label class="label-1"> {{item.content}}</ion-label>
+          <strong></strong>
+          <ion-label class="label-1"> {{item.content}} para el inicio</ion-label>
         </ion-item>
 
       </ion-card-content>

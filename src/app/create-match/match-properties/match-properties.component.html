@@ -1,37 +1,58 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <img src="../../assets/wolf-icon.png" style="display:inline-block" />
     <ion-button fill="clear" (click)="comeBack()" class="buttonComeBack">
       <ion-icon name="chevron-back-outline"></ion-icon>
-    </ion-button>
-    <ion-button fill="clear" (click)="comeBack()" class="buttonCreate">
-      Crear
     </ion-button>
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label position="floating">Match Name:</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Number of Participants:</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-
-  <!-- Default Segment -->
-  <ion-segment>
-    <ion-segment-button value="friends">
-      <ion-label>Ciclying</ion-label>
+  <div class="user-img">
+    <img src="assets/Sprint-technique.jpeg">
+  </div>
+  <ion-segment mode="ios" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentSport">
+    <ion-segment-button value="Cyclism" id="cyclismButtonSegment">
+      <ion-icon name="bicycle-outline"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Running</ion-label>
+    <ion-segment-button value="Running">
+      <ion-icon name="walk"></ion-icon>
     </ion-segment-button>
   </ion-segment>
+  <ion-item>
+    <ion-label position="floating">Match Name:</ion-label>
+    <ion-input size="10"></ion-input>
+  </ion-item>
+  <!-- <ion-item>
+    <ion-label position="floating">Number of Participants:</ion-label>
+    <ion-input type="number" size="10"></ion-input>
+  </ion-item> -->  
+  <ion-item>
+    <ion-label>Distance: {{distance}} KMS
+    </ion-label>
+  </ion-item>
 
-  <div id="elevation_chart_properties"></div>
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select placeholder="Select One">
+      <ion-select-option value="sprint">Sprint</ion-select-option>
+      <ion-select-option value="uphill">Uphill</ion-select-option>
+      <ion-select-option value="downhill">Downhill</ion-select-option>
+      <ion-select-option value="granfondo">Gran Fondo</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <div id="elevation_chart_properties" hidden></div>
+
 
   <div id="mapProperties" hidden></div>
+
+
+
+  <div class="btn-next--container">
+    <button ion-button expand='block'>
+      Continue
+    </button>
+  </div>
 </ion-content>

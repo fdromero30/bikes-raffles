@@ -30,6 +30,10 @@ export class AuthService {
 
     constructor(private afsAuth: AngularFireAuth, private router: Router, private googlePlus: GooglePlus,
         private platform: Platform,) {
+        Storage.get({ key: 'user' }).then(user => {
+            this.user = user;
+            this.authenticated = true;
+        })
     }
 
     // ...
@@ -212,7 +216,7 @@ export class AuthService {
         // const resConfirmed = await this.afsAuth.signInWithCredential(
         //     firebase.default.auth.GoogleAuthProvider.credential(res.idToken)
         // );
-     
+
         // return this.user;
     }
     /**

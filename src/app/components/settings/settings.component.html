@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" (click)="comeBack()" class="buttonComeBack">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="account--container" style="color:white">
+    <strong>Account: </strong> fabian.romero.jimenez@gmail.com
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label class="settings-list-item-left"><strong>Actual Suscription</strong></ion-label>
+      <ion-label class="settings-list-item-right">Free</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="settings-list-item-left"><strong>Change Password</strong></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="settings-list-item-left"><strong>Aplicaciones, servicios y dispositivos</strong></ion-label>
+    </ion-item>
+
+  </ion-list>
+  <div style="position: absolute; width: 100%; bottom: 1%; border: none; padding:1%">
+    <ion-button expand='block' (click)="logOut()">Log Out</ion-button>
+  </div>
+</ion-content>

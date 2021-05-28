@@ -7,6 +7,7 @@ import { Geolocation } from '@capacitor/core';
 
 export class MatchService {
     graph: any;
+    distance: any;
 
     constructor() {
 
@@ -21,7 +22,14 @@ export class MatchService {
         this.graph = graphEvent;
     }
 
-    getGraph(){
+    getGraph() {
         return this.graph;
+    }
+
+    setDistance(distance) {
+        this.distance = distance;
+    }
+    getDistance() {
+        return this.distance;
     }
 }

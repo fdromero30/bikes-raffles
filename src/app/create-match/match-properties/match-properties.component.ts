@@ -9,10 +9,13 @@ declare var google;
 })
 export class MatchPropertiesComponent implements OnInit {
     map;
+    segmentSport;
+    distance;
     constructor(private router: Router, private matchService: MatchService) {
     }
 
     ngOnInit() {
+        this.segmentSport = "Cyclism";
         const mapEl: HTMLElement = document.getElementById('mapProperties');
         this.map = new google.maps.Map(mapEl, {
             zoom: 12,
@@ -21,7 +24,8 @@ export class MatchPropertiesComponent implements OnInit {
         });
 
         const elevator = new google.maps.ElevationService();
-        this.displayPathElevation(this.matchService.getGraph().path, elevator, "OK")
+        this.distance = this.matchService.getDistance();
+        this.displayPathElevation(this.matchService.getGraph().path, elevator, "OK");
     }
 
     comeBack() {
@@ -82,8 +86,17 @@ export class MatchPropertiesComponent implements OnInit {
             legend: "none",
             backgroundColor: { fill: 'rgb(244 245 248);' },
             // @ts-ignore TODO(jpoehnelt) update to newest visualization library
-            titleY: "Elevation (m)",
+            titleY: "Elevation Profile (m)",
         });
+    }
+    /**
+     * 
+     * @param event 
+     */
+    segmentChanged(event) {
+        console.log(event);
+        this.segmentSport = event.detail.value;
+
     }
 }
 
